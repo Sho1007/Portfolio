@@ -142,9 +142,19 @@ void Map::SubSize(float value)
 	SetRect(mapRect.Left() + (value * 0.5f), mapRect.Top() + (value * 0.5f), mapRect.Right() - (value * 0.5f), mapRect.Bottom() - (value * 0.5f));
 }
 
-void Map::MoveCenter(Vector2 center)
+void Map::MoveCenter(Vector2 value)
 {
-	mapRect.center = center;
+	mapRect.center += value * 20.0f;
+
+	SetTile();
+}
+
+void Map::SetDebug()
+{
+	if (debug)
+		debug = false;
+	else
+		debug = true;
 }
 
 Map::Map(Texture* tileTexture, int sizeX, int sizeY, POINT baseFrame)
@@ -164,7 +174,8 @@ void Map::Update()
 
 void Map::Render()
 {
-	oldBrush = (HBRUSH)SelectObject(Program::BackBuffer(), GetStockObject(NULL_BRUSH));
+	if (debug)
+		oldBrush = (HBRUSH)SelectObject(Program::BackBuffer(), GetStockObject(NULL_BRUSH));
 	for (auto tileVectors : mapTile)
 	{
 		for (vector<Tile*> tileVector : tileVectors.second)
@@ -172,10 +183,12 @@ void Map::Render()
 			for (Tile* tile : tileVector)
 			{
 				tileTexture->Render(&tile->rect, tile->frame);
-				Rectangle(Program::BackBuffer(), tile->rect.Left(), tile->rect.Top(), tile->rect.Right(), tile->rect.Bottom());
+				if (debug)
+					Rectangle(Program::BackBuffer(), tile->rect.Left(), tile->rect.Top(), tile->rect.Right(), tile->rect.Bottom());
 			}
 		}
 	}
 
-	SelectObject(Program::BackBuffer(), oldBrush);
+	if (debug)
+		SelectObject(Program::BackBuffer(), oldBrush);
 }

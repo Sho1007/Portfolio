@@ -3,23 +3,29 @@
 
 void Player::Create()
 {
-	key = DataManager::Get()->GetSelectNum();
-	PlayerData* data = DataManager::Get()->GetPlayerData()[key];
+	/*key = DataManager::Get()->GetSelectNum();
+	PlayerData* data = DataManager::Get()->GetPlayerData()[key];*/
 
-	texture = TEXTURE->Find(ToWString(data->image));
+	/*texture = TEXTURE->Find(ToWString(data->image));*/
 
-	attack = data->attack;
+	texture = TEXTURE->Add(L"Textures/charTest.bmp", 144, 320, 3, 4);
+
+	/*attack = data->attack;
 	speed = data->speed;
-	accel = data->accel;
+	accel = data->accel;*/
 
-	size = { 70, 70 };
+	size = { 140, 140 };
 
 	Texture* back = TEXTURE->Add(L"Textures/hpBarTop.bmp", 53, 5);
 	Texture* front = TEXTURE->Add(L"Textures/hpBarBottom.bmp", 53, 5);
-	hpBar = new HpBar(back, front, data->hp);
+	hpBar = new HpBar(back, front, 100);
 	hpBar->SetTarget(this);
 	hpBar->size = { this->size.x, this->size.y * 0.2f };
 	hpBar->SetOffset({ 0, Half().y });
+
+	animation = new Animation(texture, 0.5f);
+	animation->SetPart(4, 5, true);
+	animation->Play();	
 }
 
 Player::Player()
@@ -37,12 +43,13 @@ void Player::Update()
 	Move();
 	Fire();
 	hpBar->Update();
+	animation->Update();
 }
 
 void Player::Redner()
 {
-	ImageRect::Render();
-	hpBar->Render();
+	ImageRect::Render(animation->GetFrame());
+	//hpBar->Render();
 }
 
 void Player::Move()

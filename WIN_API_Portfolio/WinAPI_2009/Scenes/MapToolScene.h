@@ -10,6 +10,7 @@
 
 class MapToolScene : public Scene
 {
+	Player* player;
 	Button* playBtn;
 private:
 

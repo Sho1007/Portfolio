@@ -7,6 +7,8 @@ private:
 	const float MAX_SPEED = 30.0f;
 	const float BULLET_SPEED = 400.0f;
 
+	Animation* animation;
+
 	float accel;
 	float speed;
 	float attack;

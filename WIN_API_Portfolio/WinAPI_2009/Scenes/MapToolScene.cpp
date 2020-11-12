@@ -9,6 +9,10 @@ MapToolScene::MapToolScene()
 		
 	CreateSampleTile();
 	CreateMap();
+
+
+	player = new Player();
+	player->center = { CENTER_X, CENTER_Y };
 }
 
 MapToolScene::~MapToolScene()
@@ -30,11 +34,35 @@ void MapToolScene::Update()
 		map->AddSize(50.0f);
 	if (KEY_PRESS(VK_F11))
 		map->SubSize(50.0f);	
+
+	if (KEY_PRESS(VK_UP))
+	{
+		map->MoveCenter({0, 1});
+	}
+	if (KEY_PRESS(VK_DOWN))
+	{
+		map->MoveCenter({ 0, -1 });
+	}
+	if (KEY_PRESS(VK_LEFT))
+	{
+		map->MoveCenter({ 1, 0 });
+	}
+	if (KEY_PRESS(VK_RIGHT))
+	{
+		map->MoveCenter({ -1, 0 });
+	}
+
+	if (KEY_DOWN(VK_F5))
+		map->SetDebug();
+
+	player->Update();
 }
 
 void MapToolScene::Render(HDC hdc)
 {
+	
 	map->Render();
+	player->Redner();
 }
 
 void MapToolScene::ClickSample()

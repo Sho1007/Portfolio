@@ -17,6 +17,7 @@ struct Tile
 
 class Map
 {
+	bool debug;
 	Texture* tileTexture;
 	Rect mapRect;
 	map <int, vector<vector<Tile*>>> mapTile;
@@ -51,4 +52,5 @@ public:
 	void SubSize(float value);
 	Rect GetRect() { return mapRect; }
 	void MoveCenter(Vector2 center);
+	void SetDebug();
 };
