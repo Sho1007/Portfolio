@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="Angie.bmp" width="1887" height="1256">
+  <idle loop="1" pingpong="0">
+    <sprite n="idle_1.png" x="1105" y="1" w="188" h="639" pX="0.5" pY="0.5"/>
+    <sprite n="idle_2.png" x="1277" y="1" w="188" h="639" pX="0.5" pY="0.5"/>
+    <sprite n="idle_3.png" x="1476" y="1" w="188" h="639" pX="0.5" pY="0.5"/>
+  </idle>
+  <run loop ="1" pingpong="1">
+    <sprite n="Run_1.png" x="1" y="642" w="261" h="546" pX="0.5" pY="0.5"/>
+    <sprite n="run_2.png" x="264" y="642" w="292" h="613" pX="0.5" pY="0.5"/>
+    <sprite n="run_3.png" x="558" y="642" w="210" h="546" pX="0.5" pY="0.5"/>
+    <sprite n="run_4.png" x="770" y="642" w="209" h="546" pX="0.5" pY="0.5"/>
+    <sprite n="run_5.png" x="981" y="642" w="283" h="546" pX="0.5" pY="0.5"/>
+    <sprite n="run_6.png" x="1266" y="642" w="329" h="546" pX="0.5" pY="0.5"/>
+    <sprite n="run_7.png" x="1597" y="642" w="289" h="546" pX="0.5" pY="0.5"/>
+  </run>
+  <attack loop="0" pingpong="0">
+    <sprite n="attack_1.png" x="1" y="1" w="299" h="559" pX="0.5" pY="0.5"/>
+    <sprite n="attack_2.png" x="302" y="1" w="290" h="559" pX="0.5" pY="0.5"/>
+    <sprite n="attack_3.png" x="594" y="1" w="239" h="559" pX="0.5" pY="0.5"/>
+    <sprite n="attack_4.png" x="835" y="1" w="240" h="559" pX="0.5" pY="0.5"/>
+  </attack>
+</TextureAtlas>

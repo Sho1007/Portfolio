@@ -1,0 +1,4 @@
+Key	Name	Attack	Speed	Accel	Hp	Image		ImageWidth	ImageHeight	FrameX	FrameY
+1	제트기	30	30	50	50	Textures/plane.bmp		225	113	3	1
+2	항공기	20	10	20	2000	Textures/airplane.bmp		281	278	1	1
+3	전투기	50	20	30	100	Textures/spaceshooter.bmp		270	280	1	1
