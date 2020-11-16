@@ -1,7 +1,7 @@
 #pragma once
 #define MIN_SIZE 5
 #define MAX_SIZE 50
-#define MAX_HEIGHT 4
+#define MAX_HEIGHT 2
 
 struct Tile
 {
@@ -50,7 +50,12 @@ public:
 	void SetRect(float left, float top, float right, float bottom);
 	void AddSize(float value);
 	void SubSize(float value);
-	Rect GetRect() { return mapRect; }
+	Rect* GetRect() { return &mapRect; }
+	POINT GetFrame(Vector2 pos);
 	void MoveCenter(Vector2 center);
 	void SetDebug();
+
+	void SetLayerFrame(int layer, POINT frame);
+
+	void AttackMap(Vector2 pos);
 };

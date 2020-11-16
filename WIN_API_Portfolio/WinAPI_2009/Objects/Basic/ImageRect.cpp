@@ -49,6 +49,13 @@ void ImageRect::Render(POINT curFrame, int alpha)
 	texture->Render(this, curFrame, alpha);
 }
 
+void ImageRect::BitRender(POINT curFrame)
+{
+	if (!isActive)
+		return;
+	texture->BitRender(this, curFrame);
+}
+
 void ImageRect::SetTexture(Texture* texture, POINT frame)
 {
 	this->texture = texture;

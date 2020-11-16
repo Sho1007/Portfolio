@@ -18,7 +18,7 @@ private:
 
 	Texture* mountain;
 
-	Shell* shell;
+	//Shell* shell;
 
 	HBRUSH brush;
 	HPEN pen;

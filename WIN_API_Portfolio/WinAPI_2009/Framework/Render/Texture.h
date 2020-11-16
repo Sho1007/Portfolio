@@ -35,6 +35,8 @@ public:
 	void Render(Rect* rect, int alpha);
 	void Render(Rect* rect, POINT curFrame, int alpha);
 
+	void BitRender(Rect* rect, POINT curFrame);
+
 	Vector2 GetSize() { return Vector2(frameSize.x, frameSize.y); } 
 	POINT GetMaxFrame() { return maxFrame; }
 

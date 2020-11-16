@@ -168,6 +168,7 @@
     <ClInclude Include="Objects\Basic\HpBar.h" />
     <ClInclude Include="Objects\Basic\ImageRect.h" />
     <ClInclude Include="Objects\Character\Angie.h" />
+    <ClInclude Include="Objects\Character\Enemy.h" />
     <ClInclude Include="Objects\Character\HWBird.h" />
     <ClInclude Include="Objects\Character\HWDragonEnemy.h" />
     <ClInclude Include="Objects\Character\HWDragonEnemyManager.h" />
@@ -175,8 +176,6 @@
     <ClInclude Include="Objects\Character\Mario.h" />
     <ClInclude Include="Objects\Fortress\Cannon.h" />
     <ClInclude Include="Objects\Basic\Circle.h" />
-    <ClInclude Include="Objects\Fortress\Enemy.h" />
-    <ClInclude Include="Objects\Fortress\EnemyManager.h" />
     <ClInclude Include="Objects\Basic\Line.h" />
     <ClInclude Include="Objects\Basic\Object.h" />
     <ClInclude Include="Objects\Basic\Rect.h" />
@@ -228,6 +227,7 @@
     <ClCompile Include="Objects\Basic\HpBar.cpp" />
     <ClCompile Include="Objects\Basic\ImageRect.cpp" />
     <ClCompile Include="Objects\Character\Angie.cpp" />
+    <ClCompile Include="Objects\Character\Enemy.cpp" />
     <ClCompile Include="Objects\Character\HWBird.cpp" />
     <ClCompile Include="Objects\Character\HWDragonEnemy.cpp" />
     <ClCompile Include="Objects\Character\HWDragonEnemyManager.cpp" />
@@ -235,8 +235,6 @@
     <ClCompile Include="Objects\Character\Mario.cpp" />
     <ClCompile Include="Objects\Fortress\Cannon.cpp" />
     <ClCompile Include="Objects\Basic\Circle.cpp" />
-    <ClCompile Include="Objects\Fortress\Enemy.cpp" />
-    <ClCompile Include="Objects\Fortress\EnemyManager.cpp" />
     <ClCompile Include="Objects\Basic\Line.cpp" />
     <ClCompile Include="Objects\Basic\Object.cpp" />
     <ClCompile Include="Objects\Basic\Rect.cpp" />

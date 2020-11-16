@@ -4,8 +4,12 @@
 MapToolScene::MapToolScene()
 {
 	Texture* texture = TEXTURE->Add(L"Textures/star_out.bmp", 400, 1264, SAMPLE_TILE_X, SAMPLE_TILE_Y, WHITE);
-	map = new Map(texture, 30, 30, { 0, 7 });
-	map->SetRect(-1000, -1000, 2000, 2000);
+	map = new Map(texture, 30, 30, { 0, 5 });
+	map->SetLayerFrame(0, { 0, 7 });
+	map->SetRect(0, 0, 2250, 2250);
+	map->MoveCenter({ CENTER_X, CENTER_Y });
+
+
 		
 	CreateSampleTile();
 	CreateMap();
@@ -13,10 +17,18 @@ MapToolScene::MapToolScene()
 
 	player = new Player();
 	player->center = { CENTER_X, CENTER_Y };
+	player->SetMap(map);
+
+	enemy = new Enemy();
+	enemy->SetTarget(player);
+	enemy->SetMap(map);
 }
 
 MapToolScene::~MapToolScene()
 {
+	delete map;
+	delete player;
+	delete enemy;
 }
 
 void MapToolScene::Update()
@@ -35,7 +47,7 @@ void MapToolScene::Update()
 	if (KEY_PRESS(VK_F11))
 		map->SubSize(50.0f);	
 
-	if (KEY_PRESS(VK_UP))
+	/*if (KEY_PRESS(VK_UP))
 	{
 		map->MoveCenter({0, 1});
 	}
@@ -50,12 +62,13 @@ void MapToolScene::Update()
 	if (KEY_PRESS(VK_RIGHT))
 	{
 		map->MoveCenter({ -1, 0 });
-	}
+	}*/
 
 	if (KEY_DOWN(VK_F5))
 		map->SetDebug();
 
 	player->Update();
+	enemy->Update();
 }
 
 void MapToolScene::Render(HDC hdc)
@@ -63,6 +76,7 @@ void MapToolScene::Render(HDC hdc)
 	
 	map->Render();
 	player->Redner();
+	enemy->Render();
 }
 
 void MapToolScene::ClickSample()

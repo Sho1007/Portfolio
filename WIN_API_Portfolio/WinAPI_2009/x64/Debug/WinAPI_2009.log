@@ -1,2 +1,175 @@
-﻿  Player.cpp
-  WinAPI_2009.vcxproj -> E:\Git\Portfolio\WIN_API_Portfolio\x64\Debug\WinAPI_2009.exe
+﻿  Framework.cpp
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Render\Texture.h(40,59): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Render\Texture.h(40,46): warning C4244: '인수': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Camera.cpp
+  GameManager.cpp
+  Math.cpp
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\GameManager.cpp(15,65): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2355,23): warning C4244: '인수': '_Ty'에서 'const _Elem'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2355,23): warning C4244:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2355,23): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2355,23): warning C4244:             _Ty=wchar_t
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2355,23): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2355,23): warning C4244:         and
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2355,23): warning C4244:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2355,23): warning C4244:             _Elem=char
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2355,23): warning C4244:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2366): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<_Ty*>(_Iter,const _Iter,std::input_iterator_tag)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2366): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2366): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2366): message :             _Ty=wchar_t,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2366): message :             _Iter=wchar_t *
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2366): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2366): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<_Ty*>(_Iter,const _Iter,std::input_iterator_tag)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2366): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2366): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2366): message :             _Ty=wchar_t,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2366): message :             _Iter=wchar_t *
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2366): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2346): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<_Ty*>(const _Iter,const _Iter,std::forward_iterator_tag)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2346): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2346): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2346): message :             _Ty=wchar_t,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2346): message :             _Iter=wchar_t *
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2346): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2346): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::basic_string<char,std::char_traits<char>,std::allocator<char>>::_Construct<_Ty*>(const _Iter,const _Iter,std::forward_iterator_tag)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2346): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2346): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2346): message :             _Ty=wchar_t,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2346): message :             _Iter=wchar_t *
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2346): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2892): message : 컴파일되는 함수 템플릿 인스턴스화 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<wchar_t*,void>(_Iter,_Iter,const _Alloc &)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2892): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2892): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2892): message :             _Iter=wchar_t *,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2892): message :             _Alloc=std::allocator<char>
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2892): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2892): message : 컴파일되는 함수 템플릿 인스턴스화 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::basic_string<wchar_t*,void>(_Iter,_Iter,const _Alloc &)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2892): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2892): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2892): message :             _Iter=wchar_t *,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2892): message :             _Alloc=std::allocator<char>
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xstring(2892): message :         ]
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\Math.cpp(19): message : 컴파일되는 함수 템플릿 인스턴스화 'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::assign<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,void>(const _Iter,const _Iter)'에 대한 참조를 확인하세요.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\Math.cpp(19): message :         with
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\Math.cpp(19): message :         [
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\Math.cpp(19): message :             _Elem=wchar_t,
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\Math.cpp(19): message :             _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\Math.cpp(19): message :         ]
+  Vector2.cpp
+  Animation.cpp
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\Math.cpp(19): message : 컴파일되는 함수 템플릿 인스턴스화 'std::basic_string<char,std::char_traits<char>,std::allocator<char>> &std::basic_string<char,std::char_traits<char>,std::allocator<char>>::assign<std::_String_iterator<std::_String_val<std::_Simple_types<_Elem>>>,void>(const _Iter,const _Iter)'에 대한 참조를 확인하세요.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\Math.cpp(19): message :         with
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\Math.cpp(19): message :         [
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\Math.cpp(19): message :             _Elem=wchar_t,
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\Math.cpp(19): message :             _Iter=std::_String_iterator<std::_String_val<std::_Simple_types<wchar_t>>>
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\Math.cpp(19): message :         ]
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Render\Animation.cpp(74,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Render\Animation.cpp(89,25): warning C4018: '<=': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Render\Animation.cpp(109,32): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmemory(757,1): warning C4267: '초기화 중': 'size_t'에서 '_Objty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmemory(757,1): warning C4267:         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmemory(757,1): warning C4267:         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmemory(757,1): warning C4267:             _Objty=int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\xmemory(757,1): warning C4267:         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(633): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,unsigned __int64>(_Alloc &,_Objty *const ,unsigned __int64 &&)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(633): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(633): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(633): message :             _Alloc=std::allocator<int>,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(633): message :             _Ty=int,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(633): message :             _Objty=int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(633): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(638): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,unsigned __int64>(_Alloc &,_Objty *const ,unsigned __int64 &&)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(638): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(638): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(638): message :             _Alloc=std::allocator<int>,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(638): message :             _Ty=int,
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(638): message :             _Objty=int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(638): message :         ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(651): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::vector<int,std::allocator<_Ty>>::_Emplace_back_with_unused_capacity<unsigned __int64>(unsigned __int64 &&)'에 대한 참조를 확인하세요.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(651): message :         with
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(651): message :         [
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(651): message :             _Ty=int
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\include\vector(651): message :         ]
+  Texture.cpp
+  TextureManager.cpp
+  Audio.cpp
+  Control.cpp
+  DataManager.cpp
+  Timer.cpp
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Render\Animation.cpp(101): message : 컴파일되는 함수 템플릿 인스턴스화 'void std::vector<int,std::allocator<_Ty>>::emplace_back<unsigned __int64>(unsigned __int64 &&)'에 대한 참조를 확인하세요.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Render\Animation.cpp(101): message :         with
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Render\Animation.cpp(101): message :         [
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Render\Animation.cpp(101): message :             _Ty=int
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Render\Animation.cpp(101): message :         ]
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Utility\Timer.cpp(53,44): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Utility\Timer.cpp(55,45): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Xml.cpp
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Utility\Timer.cpp(57,45): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Ball.cpp
+  Bar.cpp
+  Brick.cpp
+  BrickManager.cpp
+  Button.cpp
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Utility\Xml.cpp(2422,34): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Basic\Button.cpp(11,18): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Basic\Button.cpp(12,17): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Basic\Button.cpp(20,20): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Basic\Button.cpp(33,23): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Basic\Button.cpp(34,23): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Circle.cpp
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Basic\Button.cpp(84,83): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Effect.cpp
+  EffectManager.cpp
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Basic\Circle.cpp(5,26): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  HpBar.cpp
+  ImageRect.cpp
+  Line.cpp
+  Object.cpp
+  Rect.cpp
+  Angie.cpp
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Basic\EffectManager.cpp(44,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Character\Angie.cpp(40,15): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Character\Angie.cpp(41,15): warning C4244: '=': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Character\Angie.cpp(110,8): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Enemy.cpp
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Character\Angie.cpp(111,8): warning C4244: '초기화 중': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Character\Enemy.cpp(198,94): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Character\Enemy.cpp(198,77): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Character\Enemy.cpp(198,61): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  HWBird.cpp
+  HWDragonEnemy.cpp
+  HWDragonEnemyManager.cpp
+  HWDragonPlayer.cpp
+  Mario.cpp
+  Cannon.cpp
+  Shell.cpp
+  ShellManager.cpp
+  DragonLandscape.cpp
+  HWBlockManager.cpp
+  Landscape.cpp
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Character\Enemy.cpp(198,47): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Map.cpp
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Landscape\Landscape.cpp(100,60): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Landscape\Map.cpp(237,113): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Landscape\Map.cpp(237,92): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Landscape\Map.cpp(237,72): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Bullet.cpp
+  코드를 생성하고 있습니다...
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Landscape\Map.cpp(237,54): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  컴파일하고 있습니다...
+  BulletManager.cpp
+  Player.cpp
+  Piece.cpp
+  Program.cpp
+  CameraScene.cpp
+  HWShootingScene.cpp
+  MapToolScene.cpp
+  SceneManager.cpp
+  WinAPI_2009.cpp
+  코드를 생성하고 있습니다...
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Objects\Landscape\Map.cpp(166): warning C4715: 'Map::GetFrame': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\WinAPI_2009\Framework\Math\GameManager.h(16): warning C4172: 지역 변수 또는 임시: instance의 주소를 반환하고 있습니다.
+  WinAPI_2009.vcxproj -> C:\Users\zlzld\OneDrive\바탕 화면\Git\Portfolio\WIN_API_Portfolio\x64\Debug\WinAPI_2009.exe

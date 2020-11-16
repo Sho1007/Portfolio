@@ -16,6 +16,7 @@ public:
 	void Render(POINT curFrame);
 	void Render(int alpha);
 	void Render(POINT curFrame, int alpha);
+	void BitRender(POINT curFrame);
 
 	POINT GetFrame() { return frame; }
 

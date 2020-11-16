@@ -2,6 +2,8 @@
 
 void Map::Create()
 {
+	mapRect.size = { tileTexture->GetSize().x * sizeX, tileTexture->GetSize().y * sizeY };
+	mapRect.center = { CENTER_X, CENTER_Y };
 	for (int h = 0; h < MAX_HEIGHT; ++h)
 	{
 		vector<vector<Tile*>> tileVectors;
@@ -11,12 +13,15 @@ void Map::Create()
 			for (int j = 0; j < sizeX; ++j)
 			{
 				Tile* tile = new Tile(baseFrame);
+				tile->rect.size = tileTexture->GetSize();
 				tileVector.emplace_back(tile);
 			}
 			tileVectors.emplace_back(tileVector);
 		}
 		mapTile[h] = tileVectors;
 	}
+
+	SetTile();
 }
 
 void Map::Destroy()
@@ -142,9 +147,27 @@ void Map::SubSize(float value)
 	SetRect(mapRect.Left() + (value * 0.5f), mapRect.Top() + (value * 0.5f), mapRect.Right() - (value * 0.5f), mapRect.Bottom() - (value * 0.5f));
 }
 
+POINT Map::GetFrame(Vector2 pos)
+{
+	for (auto tileVectors : mapTile)
+	{
+		for (vector<Tile*> tileVector : tileVectors.second)
+		{
+			for (Tile* tile : tileVector)
+			{
+				if (tile->frame.x == 0 && tile->frame.y == 5)
+					continue;
+
+				if (tile->rect.IsCollision(pos))
+					return tile->frame;
+			}
+		}
+	}
+}
+
 void Map::MoveCenter(Vector2 value)
 {
-	mapRect.center += value * 20.0f;
+	mapRect.center = value;
 
 	SetTile();
 }
@@ -155,6 +178,31 @@ void Map::SetDebug()
 		debug = false;
 	else
 		debug = true;
+}
+
+void Map::SetLayerFrame(int layer, POINT frame)
+{
+	for (auto tileVector : mapTile[layer])
+	{
+		for (Tile* tile : tileVector)
+		{
+			tile->frame = frame;
+		}
+	}
+}
+
+void Map::AttackMap(Vector2 pos)
+{
+	for (auto tileVector : mapTile[0])
+	{
+		for (Tile* tile : tileVector)
+		{
+			if (tile->rect.IsCollision(pos))
+			{
+				tile->frame = {4, 11};
+			}
+		}
+	}
 }
 
 Map::Map(Texture* tileTexture, int sizeX, int sizeY, POINT baseFrame)
@@ -182,6 +230,8 @@ void Map::Render()
 		{
 			for (Tile* tile : tileVector)
 			{
+				if (tile->frame.x == 0 && tile->frame.y == 5)
+					continue;
 				tileTexture->Render(&tile->rect, tile->frame);
 				if (debug)
 					Rectangle(Program::BackBuffer(), tile->rect.Left(), tile->rect.Top(), tile->rect.Right(), tile->rect.Bottom());

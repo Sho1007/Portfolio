@@ -3,6 +3,7 @@
 
 void Player::Create()
 {
+	state = IDLE;
 	/*key = DataManager::Get()->GetSelectNum();
 	PlayerData* data = DataManager::Get()->GetPlayerData()[key];*/
 
@@ -14,7 +15,12 @@ void Player::Create()
 	speed = data->speed;
 	accel = data->accel;*/
 
-	size = { 140, 140 };
+	CreateActions();
+	animations[IDLE]->Play();
+
+	speed = 100.0f;
+
+	size = { 120, 120 };
 
 	Texture* back = TEXTURE->Add(L"Textures/hpBarTop.bmp", 53, 5);
 	Texture* front = TEXTURE->Add(L"Textures/hpBarBottom.bmp", 53, 5);
@@ -23,9 +29,7 @@ void Player::Create()
 	hpBar->size = { this->size.x, this->size.y * 0.2f };
 	hpBar->SetOffset({ 0, Half().y });
 
-	animation = new Animation(texture, 0.5f);
-	animation->SetPart(4, 5, true);
-	animation->Play();	
+	
 }
 
 Player::Player()
@@ -36,19 +40,24 @@ Player::Player()
 
 Player::~Player()
 {
+	for (Animation* animation : animations)
+	{
+		delete animation;
+	}
 }
 
 void Player::Update()
 {
+	DoAction();
 	Move();
 	Fire();
 	hpBar->Update();
-	animation->Update();
+	animations[state]->Update();
 }
 
 void Player::Redner()
 {
-	ImageRect::Render(animation->GetFrame());
+	ImageRect::Render(animations[state]->GetFrame());
 	//hpBar->Render();
 }
 
@@ -58,67 +67,50 @@ void Player::Move()
 	if (KEY_PRESS(VK_RIGHT))
 	{
 		isPressKey = true;
-		velocity.x += accel * DELTA;
-		velocity.x = min(velocity.x, MAX_SPEED);
+		velocity.x = 1.0f;
+		if (velocity.y == 0)
+			SetAnimation(WALK_RIGHT);
 	}
 	if (KEY_PRESS(VK_LEFT))
 	{
 		isPressKey = true;
-		velocity.x -= accel * DELTA;
-		velocity.x = max(velocity.x, -MAX_SPEED);
+		velocity.x = -1.0f;
+		if (velocity.y == 0)
+			SetAnimation(WALK_LEFT);
 	}
 	if (KEY_PRESS(VK_UP))
 	{
 		isPressKey = true;
-		velocity.y -= accel * DELTA;
-		velocity.y = max(velocity.y, -MAX_SPEED);
+		velocity.y = -1.0f;
+		if (velocity.x == 0)
+			SetAnimation(WALK_BACK);
 	}
 	if (KEY_PRESS(VK_DOWN))
 	{
 		isPressKey = true;
-		velocity.y += accel * DELTA;
-		velocity.y = min(velocity.y, MAX_SPEED);
+		velocity.y = 1.0f;
+		if (velocity.x == 0)
+			SetAnimation(WALK_FRONT);
 	}
 
-	if (!isPressKey)
-	{
-		if (velocity.x > 0.0f)
-		{
-			velocity.x -= accel * DELTA;
-			if (velocity.x < 0.0f)
-				velocity.x = 0.0f;
-		}
-		else if (velocity.x < 0.0f)
-		{
-			velocity.x += accel * DELTA;
-			if (velocity.x > 0.0f)
-				velocity.x = 0.0f;
-		}
+	if (KEY_UP(VK_RIGHT) || KEY_UP(VK_LEFT))
+		velocity.x = 0;
+	if (KEY_UP(VK_UP) || KEY_UP(VK_DOWN))
+		velocity.y = 0;
 
-		if (velocity.y > 0.0f)
-		{
-			velocity.y -= accel * DELTA;
-			if (velocity.y < 0.0f)
-				velocity.y = 0.0f;
-		}
-		else if (velocity.y < 0.0f)
-		{
-			velocity.y += accel * DELTA;
-			if (velocity.y > 0.0f)
-				velocity.y = 0.0f;
-		}
-	}
-
+	//velocity.Normalize();
 	center += velocity * speed * DELTA;
 
-	if (key == 1)
+	if (velocity.x == 0 && velocity.y == 0)
 	{
-		if (velocity.x > 0)
-			frame.x = 2;
-		else if (velocity.x < 0)
-			frame.x = 0;
-		else
-			frame.x = 1;
+		if (state == WALK_LEFT)
+			SetAnimation(LEFT);
+		else if (state == WALK_RIGHT)
+			SetAnimation(RIGHT);
+		else if (state == WALK_BACK)
+			SetAnimation(BACK);
+		else if (state == WALK_FRONT)
+			SetAnimation(IDLE);
 	}
 
 	if (Left() < 0)
@@ -169,5 +161,59 @@ void Player::Fire()
 			
 		}
 		
+	}
+}
+
+void Player::CreateActions()
+{
+	//	IDLE
+	animations.emplace_back(new Animation(texture));
+	animations[IDLE]->SetPart(0, 0, true);
+
+	//	WALK_FRONT
+	animations.emplace_back(new Animation(texture, 0.3f));
+	animations[WALK_FRONT]->SetPart(1, 2, true);
+
+	//	LEFT
+	animations.emplace_back(new Animation(texture));
+	animations[LEFT]->SetPart(3, 3, true);
+
+	//	WALK_LEFT
+	animations.emplace_back(new Animation(texture, 0.3f));
+	animations[WALK_LEFT]->SetPart(4, 5, true);
+
+	//	RIGHT
+	animations.emplace_back(new Animation(texture));
+	animations[RIGHT]->SetPart(6, 6, true);
+
+	//	WALK_RIGHT
+	animations.emplace_back(new Animation(texture, 0.3f));
+	animations[WALK_RIGHT]->SetPart(7, 8, true);
+
+	//	BACK
+	animations.emplace_back(new Animation(texture));
+	animations[BACK]->SetPart(9, 9, true);
+
+	//	WAKL_BACK
+	animations.emplace_back(new Animation(texture, 0.3f));
+	animations[WALK_BACK]->SetPart(10, 11, true);
+}
+
+void Player::DoAction()
+{
+	if (KEY_DOWN(VK_SHIFT))
+	{
+		Vector2 pos = { center.x, center.y + (size.y * 0.5f) };
+
+		map->AttackMap(pos);
+	}
+}
+
+void Player::SetAnimation(State value)
+{
+	if (state != value)
+	{
+		state = value;
+		animations[state]->Play();
 	}
 }

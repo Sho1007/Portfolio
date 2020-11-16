@@ -84,15 +84,14 @@ using namespace GameMath;
 
 #include "Objects/Character/Mario.h"
 
+
 #include "Objects/Landscape/Landscape.h"
 #include "Objects/Landscape/Map.h"
 
 #include "Objects/Shooting/Bullet.h"
 #include "Objects/Shooting/BulletManager.h"
 
-#include "Objects/Fortress/Enemy.h"
-#include "Objects/Fortress/EnemyManager.h"
-
+#include "Objects/Character/Enemy.h"
 #include "Objects/Shooting/Player.h"
 
 #include "Objects/Character/HWDragonPlayer.h"

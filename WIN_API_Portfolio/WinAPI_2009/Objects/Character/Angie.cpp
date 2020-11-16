@@ -12,7 +12,7 @@ Angie::Angie()
 
 	mountain = TEXTURE->Find(L"Textures/map_land.bmp");
 
-	shell = new Shell();
+	//shell = new Shell();
 
 	brush = CreateSolidBrush(MAGENTA);
 	pen = CreatePen(PS_SOLID, 1, MAGENTA);
@@ -20,7 +20,7 @@ Angie::Angie()
 
 Angie::~Angie()
 {
-	delete shell;
+	//delete shell;
 	DeleteObject(brush);
 	DeleteObject(pen);
 }
@@ -31,7 +31,7 @@ void Angie::Update()
 	Move();
 	Attack();
 	Jump();
-	shell->Update();
+	//shell->Update();
 }
 
 void Angie::Render()
@@ -47,7 +47,7 @@ void Angie::Render()
 
 	texture->Render(&temp, rect);
 
-	shell->Render(Program::BackBuffer());
+	//shell->Render(Program::BackBuffer());
 }
 
 void Angie::LoadXML(string path, string file)
@@ -147,12 +147,12 @@ void Angie::Attack()
 	{
 		SetAnimation(ATTACK);
 
-		shell->Fire(center, PI/4, 5000);
+		//shell->Fire(center, PI/4, 5000);
 	}
 
-	float mountainY = GetMountainY(shell->GetBall()->center);
+	//float mountainY = GetMountainY(shell->GetBall()->center);
 
-	if (shell->IsFire() && mountainY < shell->GetBall()->center.y)
+	/*if (shell->IsFire() && mountainY < shell->GetBall()->center.y)
 	{
 		shell->SetFire(false);
 
@@ -169,7 +169,7 @@ void Angie::Attack()
 		int bottom = shell->GetBall()->Bottom() + radius;
 
 		Ellipse(hdc, left, top, right, bottom);
-	}
+	}*/
 }
 
 void Angie::Jump()

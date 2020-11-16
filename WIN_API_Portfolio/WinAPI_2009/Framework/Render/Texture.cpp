@@ -161,3 +161,16 @@ void Texture::Render(Rect* rect, POINT curFrame, int alpha)
 		blendFunc
 	);
 }
+
+void Texture::BitRender(Rect* rect, POINT curFrame)
+{
+	BitBlt(Program::BackBuffer(),
+		(int)(rect->Left()),
+		(int)(rect->Top()),
+		(int)(rect->size.x),
+		(int)(rect->size.y),
+		memDC,
+		frameSize.x * curFrame.x, frameSize.y * curFrame.y,
+		SRCCOPY
+	);
+}
