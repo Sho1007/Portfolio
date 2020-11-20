@@ -6,8 +6,8 @@
 #define WIN_WIDTH 1920
 #define WIN_HEIGHT 1080
 
-#define WIN_START_X 100
-#define WIN_START_Y 100
+#define WIN_START_X 0
+#define WIN_START_Y 0
 
 #define CENTER_X WIN_WIDTH * 0.5f
 #define CENTER_Y WIN_HEIGHT * 0.5f
@@ -35,8 +35,10 @@
 #define SCENE SceneManager::Get()
 #define EFFECT EffectManager::Get()
 #define CAM Camera::Get()
+#define GM GameManager::Get()
 
 #include <windows.h>
+#include <algorithm>
 #include <string>
 #include <ctime>
 #include <vector>
@@ -86,12 +88,14 @@ using namespace GameMath;
 
 
 #include "Objects/Landscape/Landscape.h"
+#include "Objects/Landscape/Tile.h"
 #include "Objects/Landscape/Map.h"
 
 #include "Objects/Shooting/Bullet.h"
 #include "Objects/Shooting/BulletManager.h"
 
 #include "Objects/Character/Enemy.h"
+#include "Objects/Character/EnemyManager.h"
 #include "Objects/Shooting/Player.h"
 
 #include "Objects/Character/HWDragonPlayer.h"
@@ -104,6 +108,7 @@ using namespace GameMath;
 //Program Header
 #include "Scenes/Scene.h"
 #include "Scenes/SceneManager.h"
+#include "Framework/Math/GameManager.h"
 #include "Program/Program.h"
 
 extern Vector2 mousePos;

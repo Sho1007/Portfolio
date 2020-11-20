@@ -14,7 +14,7 @@ HpBar::~HpBar()
 void HpBar::Update()
 {
 	if (!(target == nullptr))
-		center = target->center + offset;
+		center = target->center + offset - CAM->Pos();
 	frontRect->SetRect(Left(), Top(), Left() + size.x * (curHp / maxHp), Bottom());
 }
 

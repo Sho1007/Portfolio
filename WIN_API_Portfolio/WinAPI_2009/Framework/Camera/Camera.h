@@ -32,5 +32,5 @@ public:
 	void SetPos(Vector2 value);
 	Rect* GetMapRect() { return mapRect; }
 	void SetTarget(Rect* value) { target = value; }
-	void SetOffet(float x, float y) { offset = { x, y }; }
+	void SetOffset(float x, float y) { offset = { x, y }; }
 };

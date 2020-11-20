@@ -25,20 +25,34 @@ class Enemy : public ImageRect
 	Rect* target;
 	Vector2 dir;
 	Rect toward;
+	Rect colRect;
 	vector<Animation*> animations;
 	Map* map;
+
+	friend class EnemyManager;
 
 	void CreateActions();
 	void SetIdle();
 	void SetAnimation(State value);
-public:
 	void Create();
 	void Destroy();
-	void Update();
-	void Render();
 	void SetTarget(Rect* value) { target = value; }
 	void SetMap(Map* value) { map = value; }
+	void SetSpawn(Vector2 pos);
+public:
 	
+	void Update();
+	void Render();
 	Enemy();
 	~Enemy();
+
+	bool operator< (const Enemy& e) const
+	{
+		if (this->center.y < e.center.y)
+			return true;
+
+		return false;
+	}
+
+	static int Compare(Enemy* e1, Enemy* e2);
 };

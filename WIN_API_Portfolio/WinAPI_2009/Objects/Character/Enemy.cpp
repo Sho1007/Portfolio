@@ -94,18 +94,28 @@ void Enemy::Create()
 {
 	state = FRONT;
 	texture = TEXTURE->Add(L"Textures/zombie.bmp", 448, 512, 7, 8);
-	speed = 50.0f;
+	speed = 150.0f;
 	attack = 50.0f;
 	atkCool = 3.0f;
 	atkCoolNow = 0.0f;
-	isActive = true;
-	toward.size = { 50.0f, 50.0f };
+	isActive = false;
+	
 
 	CreateActions();
 	animations[state]->Play();
 
 	center = { CENTER_X, CENTER_Y };
 	size = { 150, 150 };
+	colRect.size.x = size.x * 0.25f;
+	colRect.size.y = size.y * 0.25f;
+	toward.size = { size.x * 0.5f, size.y * 0.5f };
+
+	Texture* back = TEXTURE->Add(L"Textures/hpBarTop.bmp", 53, 5);
+	Texture* front = TEXTURE->Add(L"Textures/hpBarBottom.bmp", 53, 5);
+	hpBar = new HpBar(back, front, 100);
+	hpBar->SetTarget(this);
+	hpBar->size = { size.x * 0.5f, this->size.y * 0.1f };
+	hpBar->SetOffset({ 0, Half().y });
 }
 
 void Enemy::Destroy()
@@ -114,28 +124,48 @@ void Enemy::Destroy()
 	{
 		delete animation;
 	}
+	delete hpBar;
+}
+
+void Enemy::SetSpawn(Vector2 pos)
+{
+	isActive = true;
+	center = pos;
+	hpBar->SetHp(100.0f);
 }
 
 void Enemy::Update()
 {
+	if (!isActive)
+		return;
+
+	colRect.center = { center.x, center.y + size.y * 0.3f};
+	hpBar->Update();
 	if (atkCoolNow > 0.0f)
 		atkCoolNow -= DELTA;
 
 	animations[state]->Update();
 
 	dir = target->center - center;
+	dir += CAM->Pos();
 	float dis = dir.Length();
 	if (dis >= 1.0f)
 		dir.Normalize();
 	toward.center = { center.x, center.y + size.y * 0.2f };
 	toward.center += dir * 30.0f;
 	
-	if (dis >= 50.0f)
+	if (dis >= 70.0f)
 	{
-		dir.Normalize();
 		POINT frame = map->GetFrame(toward.center);
-		if (frame.x != 4 && frame.y != 11)
+		if (frame.x == 4 && frame.y == 11)
+		{
+			
+		}
+		else
+		{
 			center += dir * speed * DELTA;
+		}
+			
 		if (abs(dir.x) >= abs(dir.y))
 		{
 			if (dir.x < 0)
@@ -193,9 +223,12 @@ void Enemy::Update()
 
 void Enemy::Render()
 {
-	ImageRect::Render(animations[state]->GetFrame());
-	if (isActive)
-		Rectangle(Program::BackBuffer(), toward.Left(), toward.Top(), toward.Right(), toward.Bottom());
+	if (!isActive)
+		return;
+	//Rectangle(Program::BackBuffer(), colRect.Left() - CAM->Pos().x, colRect.Top() - CAM->Pos().y, colRect.Right() - CAM->Pos().x, colRect.Bottom() - CAM->Pos().y);
+	ImageRect::CamRender(animations[state]->GetFrame());
+	//Rectangle(Program::BackBuffer(), toward.Left() - CAM->Pos().x, toward.Top() - CAM->Pos().y, toward.Right() - CAM->Pos().x, toward.Bottom() - CAM->Pos().y);
+	//hpBar->Render();
 }
 
 Enemy::Enemy()
@@ -206,4 +239,11 @@ Enemy::Enemy()
 Enemy::~Enemy()
 {
 	Destroy();
+}
+
+int Enemy::Compare(Enemy* e1, Enemy* e2)
+{
+	if (e1->center.y < e2->center.y)
+		return 1;
+	return 0;
 }

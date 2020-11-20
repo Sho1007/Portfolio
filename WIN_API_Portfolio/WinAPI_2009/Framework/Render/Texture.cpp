@@ -98,7 +98,7 @@ void Texture::Render(Rect* rect, int alpha)
 		frameSize.x, frameSize.y,
 		Program::BackBuffer(),
 		(int)(rect->Left()),
-		(int)(rect->Right()),
+		(int)(rect->Top()),
 		SRCCOPY
 	);
 
@@ -115,7 +115,7 @@ void Texture::Render(Rect* rect, int alpha)
 	GdiAlphaBlend(
 		Program::BackBuffer(),
 		(int)(rect->Left()),
-		(int)(rect->Right()),
+		(int)(rect->Top()),
 		(int)(rect->size.x),
 		(int)(rect->size.y),
 		alphaMemDC,
@@ -135,7 +135,7 @@ void Texture::Render(Rect* rect, POINT curFrame, int alpha)
 		frameSize.x, frameSize.y,
 		Program::BackBuffer(),
 		(int)(rect->Left()),
-		(int)(rect->Right()),
+		(int)(rect->Top()),
 		SRCCOPY
 	);
 
@@ -152,7 +152,7 @@ void Texture::Render(Rect* rect, POINT curFrame, int alpha)
 	GdiAlphaBlend(
 		Program::BackBuffer(),
 		(int)(rect->Left()),
-		(int)(rect->Right()),
+		(int)(rect->Top()),
 		(int)(rect->size.x),
 		(int)(rect->size.y),
 		alphaMemDC,

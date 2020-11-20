@@ -12,8 +12,8 @@ void Map::Create()
 			vector<Tile*> tileVector;
 			for (int j = 0; j < sizeX; ++j)
 			{
-				Tile* tile = new Tile(baseFrame);
-				tile->rect.size = tileTexture->GetSize();
+				Tile* tile = new Tile(tileTexture, baseFrame);
+				tile->size = tileTexture->GetSize();
 				tileVector.emplace_back(tile);
 			}
 			tileVectors.emplace_back(tileVector);
@@ -49,7 +49,7 @@ void Map::AddRow()
 		vector<Tile* > tileVector;
 		for (int i = 0; i < sizeX; ++i)
 		{
-			Tile* tile = new Tile(baseFrame);
+			Tile* tile = new Tile(tileTexture, baseFrame);
 			tileVector.emplace_back(tile);
 		}
 		tileVectors.second.emplace_back(tileVector);
@@ -65,7 +65,7 @@ void Map::AddCol()
 	{
 		for (vector<Tile*> tileVector : tileVectors.second)
 		{
-			Tile* tile = new Tile(baseFrame);
+			Tile* tile = new Tile(tileTexture, baseFrame);
 			tileVector.emplace_back(tile);
 		}
 	}
@@ -116,15 +116,15 @@ void Map::SetTile()
 			for (int j = 0; j < sizeX; ++j)
 			{
 				if (i == 0)
-					tileVectors.second[i][j]->rect.center.y = mapRect.Top() + (height * 0.5f);
+					tileVectors.second[i][j]->center.y = mapRect.Top() + (height * 0.5f);
 				else
-					tileVectors.second[i][j]->rect.center.y = tileVectors.second[i - 1][j]->rect.center.y + height;
+					tileVectors.second[i][j]->center.y = tileVectors.second[i - 1][j]->center.y + height;
 				if (j == 0)
-					tileVectors.second[i][j]->rect.center.x = mapRect.Left() + (width * 0.5f);
+					tileVectors.second[i][j]->center.x = mapRect.Left() + (width * 0.5f);
 				else
-					tileVectors.second[i][j]->rect.center.x = tileVectors.second[i][j - 1]->rect.center.x + width;
+					tileVectors.second[i][j]->center.x = tileVectors.second[i][j - 1]->center.x + width;
 
-				tileVectors.second[i][j]->rect.size = { width, height };
+				tileVectors.second[i][j]->size = { width, height };
 			}
 		}
 	}
@@ -155,11 +155,11 @@ POINT Map::GetFrame(Vector2 pos)
 		{
 			for (Tile* tile : tileVector)
 			{
-				if (tile->frame.x == 0 && tile->frame.y == 5)
+				if (tile->GetFrame().x == 0 && tile->GetFrame().y == 5)
 					continue;
 
-				if (tile->rect.IsCollision(pos))
-					return tile->frame;
+				if (tile->IsCollision(pos))
+					return tile->GetFrame();
 			}
 		}
 	}
@@ -172,21 +172,13 @@ void Map::MoveCenter(Vector2 value)
 	SetTile();
 }
 
-void Map::SetDebug()
-{
-	if (debug)
-		debug = false;
-	else
-		debug = true;
-}
-
 void Map::SetLayerFrame(int layer, POINT frame)
 {
 	for (auto tileVector : mapTile[layer])
 	{
 		for (Tile* tile : tileVector)
 		{
-			tile->frame = frame;
+			tile->SetFrame(frame);
 		}
 	}
 }
@@ -197,9 +189,9 @@ void Map::AttackMap(Vector2 pos)
 	{
 		for (Tile* tile : tileVector)
 		{
-			if (tile->rect.IsCollision(pos))
+			if (tile->IsCollision(pos))
 			{
-				tile->frame = {4, 11};
+				tile->SetFrame({4, 11});
 			}
 		}
 	}
@@ -222,7 +214,7 @@ void Map::Update()
 
 void Map::Render()
 {
-	if (debug)
+	if (GM->IsDebug())
 		oldBrush = (HBRUSH)SelectObject(Program::BackBuffer(), GetStockObject(NULL_BRUSH));
 	for (auto tileVectors : mapTile)
 	{
@@ -230,15 +222,15 @@ void Map::Render()
 		{
 			for (Tile* tile : tileVector)
 			{
-				if (tile->frame.x == 0 && tile->frame.y == 5)
+				if (tile->GetFrame().x == 0 && tile->GetFrame().y == 5)
 					continue;
-				tileTexture->Render(&tile->rect, tile->frame);
-				if (debug)
-					Rectangle(Program::BackBuffer(), tile->rect.Left(), tile->rect.Top(), tile->rect.Right(), tile->rect.Bottom());
+				tile->CamRender();
+				if (GM->IsDebug())
+					Rectangle(Program::BackBuffer(), tile->Left() - CAM->Pos().x, tile->Top() - CAM->Pos().y, tile->Right() - CAM->Pos().x, tile->Bottom() - CAM->Pos().y);
 			}
 		}
 	}
 
-	if (debug)
+	if (GM->IsDebug())
 		SelectObject(Program::BackBuffer(), oldBrush);
 }

@@ -19,8 +19,10 @@ public:
 	void BitRender(POINT curFrame);
 
 	POINT GetFrame() { return frame; }
+	void SetFrame(POINT value) { frame = value; }
 
 	void SetTexture(Texture* texture, POINT frame = { 0, 0 });
 
 	void CamRender();
+	void CamRender(POINT curFrame);
 };

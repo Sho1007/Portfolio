@@ -3,6 +3,7 @@
 
 MapToolScene::MapToolScene()
 {
+	bg = TEXTURE->Add(L"Textures/dark.bmp", 1264, 741);
 	Texture* texture = TEXTURE->Add(L"Textures/star_out.bmp", 400, 1264, SAMPLE_TILE_X, SAMPLE_TILE_Y, WHITE);
 	map = new Map(texture, 30, 30, { 0, 5 });
 	map->SetLayerFrame(0, { 0, 7 });
@@ -16,19 +17,22 @@ MapToolScene::MapToolScene()
 
 
 	player = new Player();
-	player->center = { CENTER_X, CENTER_Y };
+	player->center = map->GetRect()->center;
 	player->SetMap(map);
 
-	enemy = new Enemy();
-	enemy->SetTarget(player);
-	enemy->SetMap(map);
+	em = new EnemyManager(player, map);
+
+	CAM->SetPos({ 0, 0 });
+	CAM->GetMapRect()->center = map->GetRect()->center;
+	CAM->GetMapRect()->size = map->GetRect()->size;
+	//CAM->SetTarget(player);
 }
 
 MapToolScene::~MapToolScene()
 {
 	delete map;
 	delete player;
-	delete enemy;
+	delete em;
 }
 
 void MapToolScene::Update()
@@ -64,19 +68,19 @@ void MapToolScene::Update()
 		map->MoveCenter({ -1, 0 });
 	}*/
 
-	if (KEY_DOWN(VK_F5))
-		map->SetDebug();
-
 	player->Update();
-	enemy->Update();
+	em->Update();
 }
 
 void MapToolScene::Render(HDC hdc)
 {
 	
 	map->Render();
+
+	em->Render();
 	player->Redner();
-	enemy->Render();
+
+	bg->Render(CAM->GetMapRect(), 205);
 }
 
 void MapToolScene::ClickSample()

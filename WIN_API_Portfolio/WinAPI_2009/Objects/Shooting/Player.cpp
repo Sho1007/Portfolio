@@ -28,8 +28,6 @@ void Player::Create()
 	hpBar->SetTarget(this);
 	hpBar->size = { this->size.x, this->size.y * 0.2f };
 	hpBar->SetOffset({ 0, Half().y });
-
-	
 }
 
 Player::Player()
@@ -68,29 +66,21 @@ void Player::Move()
 	{
 		isPressKey = true;
 		velocity.x = 1.0f;
-		if (velocity.y == 0)
-			SetAnimation(WALK_RIGHT);
 	}
 	if (KEY_PRESS(VK_LEFT))
 	{
 		isPressKey = true;
 		velocity.x = -1.0f;
-		if (velocity.y == 0)
-			SetAnimation(WALK_LEFT);
 	}
 	if (KEY_PRESS(VK_UP))
 	{
 		isPressKey = true;
 		velocity.y = -1.0f;
-		if (velocity.x == 0)
-			SetAnimation(WALK_BACK);
 	}
 	if (KEY_PRESS(VK_DOWN))
 	{
 		isPressKey = true;
 		velocity.y = 1.0f;
-		if (velocity.x == 0)
-			SetAnimation(WALK_FRONT);
 	}
 
 	if (KEY_UP(VK_RIGHT) || KEY_UP(VK_LEFT))
@@ -98,18 +88,42 @@ void Player::Move()
 	if (KEY_UP(VK_UP) || KEY_UP(VK_DOWN))
 		velocity.y = 0;
 
-	//velocity.Normalize();
+	if (velocity.Length() >= 1.0f)
+		velocity.Normalize();
+
+	if (abs(velocity.x) >= abs(velocity.y))
+	{
+		if (velocity.x < 0)
+		{
+			SetAnimation(LEFT_WALK);
+		}
+		else if (velocity.x > 0)
+		{
+			SetAnimation(RIGHT_WALK);
+		}
+	}
+	else
+	{
+		if (velocity.y > 0)
+		{
+			SetAnimation(FRONT_WALK);
+		}
+		else if (velocity.y < 0)
+		{
+			SetAnimation(BACK_WALK);
+		}
+	}
 	center += velocity * speed * DELTA;
 
 	if (velocity.x == 0 && velocity.y == 0)
 	{
-		if (state == WALK_LEFT)
+		if (state == LEFT_WALK)
 			SetAnimation(LEFT);
-		else if (state == WALK_RIGHT)
+		else if (state == RIGHT_WALK)
 			SetAnimation(RIGHT);
-		else if (state == WALK_BACK)
+		else if (state == BACK_WALK)
 			SetAnimation(BACK);
-		else if (state == WALK_FRONT)
+		else if (state == FRONT_WALK)
 			SetAnimation(IDLE);
 	}
 
@@ -172,7 +186,7 @@ void Player::CreateActions()
 
 	//	WALK_FRONT
 	animations.emplace_back(new Animation(texture, 0.3f));
-	animations[WALK_FRONT]->SetPart(1, 2, true);
+	animations[FRONT_WALK]->SetPart(1, 2, true);
 
 	//	LEFT
 	animations.emplace_back(new Animation(texture));
@@ -180,7 +194,7 @@ void Player::CreateActions()
 
 	//	WALK_LEFT
 	animations.emplace_back(new Animation(texture, 0.3f));
-	animations[WALK_LEFT]->SetPart(4, 5, true);
+	animations[LEFT_WALK]->SetPart(4, 5, true);
 
 	//	RIGHT
 	animations.emplace_back(new Animation(texture));
@@ -188,7 +202,7 @@ void Player::CreateActions()
 
 	//	WALK_RIGHT
 	animations.emplace_back(new Animation(texture, 0.3f));
-	animations[WALK_RIGHT]->SetPart(7, 8, true);
+	animations[RIGHT_WALK]->SetPart(7, 8, true);
 
 	//	BACK
 	animations.emplace_back(new Animation(texture));
@@ -196,7 +210,7 @@ void Player::CreateActions()
 
 	//	WAKL_BACK
 	animations.emplace_back(new Animation(texture, 0.3f));
-	animations[WALK_BACK]->SetPart(10, 11, true);
+	animations[BACK_WALK]->SetPart(10, 11, true);
 }
 
 void Player::DoAction()
@@ -205,7 +219,7 @@ void Player::DoAction()
 	{
 		Vector2 pos = { center.x, center.y + (size.y * 0.5f) };
 
-		map->AttackMap(pos);
+		map->AttackMap(pos + CAM->Pos());
 	}
 }
 

@@ -1,6 +1,8 @@
 #include "Framework.h"
 #include "Scenes/CameraScene.h"
 #include "Scenes/MapToolScene.h"
+#include "Scenes/StartScene.h"
+#include "Scenes/GameScene.h"
 
 HDC Program::backBuffer = nullptr;
 
@@ -13,23 +15,9 @@ Program::Program()
 
 	srand((unsigned)time(NULL));
 
-	/*SCENE->Add("start", new StartScene());
-	SCENE->Add("game", new ShootingScene());
-	SCENE->Add("select", new ShootingSelectScene());*/
-
-	/*SCENE->Add("start", new HWDragonStartScene());
-	SCENE->Add("game", new HWShootingScene());
-
-	SCENE->ChangeScene("start");
-
-	AUDIO->Add("BG1", "Sounds/dragonBG1.mp3", true);
-	AUDIO->Add("BG2", "Sounds/start.mp3", true);*/
-
-	//SCENE->Add("start", new PixelCollisionScene());
-	//SCENE->Add("start", new AlphaScene());
-	//SCENE->Add("start", new AnimationScene());
-	//SCENE->Add("start", new CameraScene());
-	SCENE->Add("start", new MapToolScene());
+	SCENE->Add("start", new StartScene());
+	SCENE->Add("game", new GameScene());
+	SCENE->Add("tool", new MapToolScene());
 
 	SCENE->ChangeScene("start");
 	
@@ -48,6 +36,7 @@ void Program::Update()
 
 	SCENE->Update();
 	CAM->Update();
+	GM->Update();
 }
 
 void Program::Render(HDC hdc)
@@ -56,7 +45,10 @@ void Program::Render(HDC hdc)
 
 	SCENE->Render(backBuffer);
 
-	Timer::Get()->Render(backBuffer);
+	if (GM->IsDebug())
+		Timer::Get()->Render(backBuffer);
+
+	GM->Render(backBuffer);
 
 	BitBlt(hdc, 0, 0, WIN_WIDTH, WIN_HEIGHT,
 		backBuffer, 0, 0, SRCCOPY);

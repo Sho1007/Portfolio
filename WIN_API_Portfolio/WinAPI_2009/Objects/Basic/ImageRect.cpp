@@ -71,5 +71,17 @@ void ImageRect::CamRender()
 	temp.size = size;
 	temp.center = center - CAM->Pos();
 	
-	texture->Render(&temp);
+	texture->Render(&temp, frame);
+}
+
+void ImageRect::CamRender(POINT curFrame)
+{
+	if (!isActive)
+		return;
+
+	Rect temp;
+	temp.size = size;
+	temp.center = center - CAM->Pos();
+
+	texture->Render(&temp, curFrame);
 }

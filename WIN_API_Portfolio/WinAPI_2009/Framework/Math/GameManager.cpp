@@ -1,33 +1,79 @@
 #include "Framework.h"
 
 GameManager::GameManager()
-	: gold(0), isPlay(false), stage(1)
 {
+	Create();
 }
 
 GameManager::~GameManager()
 {
+	Destroy();
 }
 
-void GameManager::Render(HDC hdc)
+void GameManager::Create()
 {
-	string temp = "Gold : " + to_string(gold);
-	TextOutA(hdc, WIN_WIDTH - 150, 100, temp.c_str(), temp.length());
+	debugMode = false;
+	timeCool = 0.01f;
+	timeCoolNow = 0.0f;
+
+	min = 0;
+	hour = 0;
+	day = 0;
 }
 
-bool GameManager::Pay(int value)
+void GameManager::Destroy()
 {
-	if (gold > value)
+}
+
+void GameManager::Update()
+{
+	DebugSwitch();
+	if (play)
 	{
-		gold -= value;
-		return true;
+		timeCoolNow += DELTA;
+		if (timeCoolNow >= timeCool)
+		{
+			timeCoolNow -= timeCool;
+			min += 1;
+		}
+
+		if (min >= 60)
+		{
+			min -= 60;
+			hour += 1;
+		}
+
+		if (hour >= 24)
+		{
+			hour -= 24;
+			day += 1;
+		}
 	}
-	return false;
 }
 
-void GameManager::Init()
+void GameManager::Render(HDC hdc) const 
 {
-	gold = 0;
-	isPlay = true;
-	stage = 1;
+	if (debugMode)
+	{
+		string temp = debugMode == true ? "true" : "false";
+		string str = "DebugMode : " + temp;
+		TextOutA(hdc, CENTER_X, 20, str.c_str(), str.length());
+
+		if (play)
+		{
+			str = "Day : " + to_string(day) + ", hour : " + to_string(hour) + ", min : " + to_string(min);
+			TextOutA(hdc, CENTER_X, 50, str.c_str(), str.length());
+		}
+	}
+}
+
+void GameManager::DebugSwitch()
+{
+	if (KEY_DOWN(VK_F3))
+	{
+		if (debugMode)
+			debugMode = false;
+		else
+			debugMode = true;
+	}		
 }

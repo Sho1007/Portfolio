@@ -10,10 +10,11 @@
 
 class MapToolScene : public Scene
 {
+	Texture* bg;
 	Player* player;
 	Button* playBtn;
 
-	Enemy* enemy;
+	EnemyManager* em;
 
 private:
 

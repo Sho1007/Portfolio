@@ -21,7 +21,7 @@ private:
 
 	string text;
 	HFONT font, oldFont;
-	COLORREF fontColor;
+	COLORREF fontColor, oldColor;
 	int fontSize;
 	POINT fontPos;
 

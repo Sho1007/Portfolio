@@ -5,13 +5,13 @@ class Player : public ImageRect
 private:
 	enum State {
 		IDLE,
-		WALK_FRONT,
+		FRONT_WALK,
 		LEFT,
-		WALK_LEFT,
+		LEFT_WALK,
 		RIGHT,
-		WALK_RIGHT,
+		RIGHT_WALK,
 		BACK,
-		WALK_BACK
+		BACK_WALK
 	} state;
 	const float MAX_SPEED = 30.0f;
 	const float BULLET_SPEED = 400.0f;

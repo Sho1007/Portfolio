@@ -169,6 +169,7 @@
     <ClInclude Include="Objects\Basic\ImageRect.h" />
     <ClInclude Include="Objects\Character\Angie.h" />
     <ClInclude Include="Objects\Character\Enemy.h" />
+    <ClInclude Include="Objects\Character\EnemyManager.h" />
     <ClInclude Include="Objects\Character\HWBird.h" />
     <ClInclude Include="Objects\Character\HWDragonEnemy.h" />
     <ClInclude Include="Objects\Character\HWDragonEnemyManager.h" />
@@ -185,6 +186,7 @@
     <ClInclude Include="Objects\Landscape\HWBlockManager.h" />
     <ClInclude Include="Objects\Landscape\Landscape.h" />
     <ClInclude Include="Objects\Landscape\Map.h" />
+    <ClInclude Include="Objects\Landscape\Tile.h" />
     <ClInclude Include="Objects\Metal\MetalPlayer.h" />
     <ClInclude Include="Objects\Shooting\Bullet.h" />
     <ClInclude Include="Objects\Shooting\BulletManager.h" />
@@ -193,10 +195,11 @@
     <ClInclude Include="Program\Program.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scenes\CameraScene.h" />
-    <ClInclude Include="Scenes\HW\HWShootingScene.h" />
+    <ClInclude Include="Scenes\GameScene.h" />
     <ClInclude Include="Scenes\MapToolScene.h" />
     <ClInclude Include="Scenes\Scene.h" />
     <ClInclude Include="Scenes\SceneManager.h" />
+    <ClInclude Include="Scenes\StartScene.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="WinAPI_2009.h" />
   </ItemGroup>
@@ -228,6 +231,7 @@
     <ClCompile Include="Objects\Basic\ImageRect.cpp" />
     <ClCompile Include="Objects\Character\Angie.cpp" />
     <ClCompile Include="Objects\Character\Enemy.cpp" />
+    <ClCompile Include="Objects\Character\EnemyManager.cpp" />
     <ClCompile Include="Objects\Character\HWBird.cpp" />
     <ClCompile Include="Objects\Character\HWDragonEnemy.cpp" />
     <ClCompile Include="Objects\Character\HWDragonEnemyManager.cpp" />
@@ -244,15 +248,17 @@
     <ClCompile Include="Objects\Landscape\HWBlockManager.cpp" />
     <ClCompile Include="Objects\Landscape\Landscape.cpp" />
     <ClCompile Include="Objects\Landscape\Map.cpp" />
+    <ClCompile Include="Objects\Landscape\Tile.cpp" />
     <ClCompile Include="Objects\Shooting\Bullet.cpp" />
     <ClCompile Include="Objects\Shooting\BulletManager.cpp" />
     <ClCompile Include="Objects\Shooting\Player.cpp" />
     <ClCompile Include="Objects\SlicePuzzle\Piece.cpp" />
     <ClCompile Include="Program\Program.cpp" />
     <ClCompile Include="Scenes\CameraScene.cpp" />
-    <ClCompile Include="Scenes\HW\HWShootingScene.cpp" />
+    <ClCompile Include="Scenes\GameScene.cpp" />
     <ClCompile Include="Scenes\MapToolScene.cpp" />
     <ClCompile Include="Scenes\SceneManager.cpp" />
+    <ClCompile Include="Scenes\StartScene.cpp" />
     <ClCompile Include="WinAPI_2009.cpp" />
   </ItemGroup>
   <ItemGroup>
